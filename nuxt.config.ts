@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+import { defineNuxtConfig } from "nuxt/config";
 export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
@@ -10,10 +12,8 @@ export default defineNuxtConfig({
       link: []
     },
   },
+  serverHandlers: [
+    { route: '/myapi', handler: '~/server/api/server.js' }
+  ],
 })
 
-module.exports = {
-  serverMiddleware: [
-    { path: '/api', handler: '~/server.js' }
-  ]
-}
